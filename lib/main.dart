@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mortir_pindad/jaupan/mainjaupan.dart';
 import 'package:mortir_pindad/pusat/mainpusat.dart';
 
 void main() {
@@ -13,11 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/', // ✅ Gunakan named routes
+      initialRoute: '/', 
       routes: {
         '/': (context) => const LoginPage(),
         '/home': (context) =>
-            const MainPusatPage(), // ✅ Tambahkan halaman utama
+            const MainPusatPage(), 
       },
     );
   }
@@ -46,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
     String password = _passwordController.text.trim();
 
     if (username == "user" && password == "password") {
-      Navigator.pushReplacementNamed(context, '/home'); // ✅ Gunakan Named Route
+      Navigator.pushReplacementNamed(context, '/home');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

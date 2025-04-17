@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:mortir_pindad/pusat/profile.dart';
 
 class PengaturanAkunPage extends StatefulWidget {
   const PengaturanAkunPage({Key? key}) : super(key: key);
@@ -159,7 +158,6 @@ class PengaturanSisbakMortirPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-          
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -192,7 +190,6 @@ class PengaturanSisbakMortirPage extends StatelessWidget {
               Expanded(
                 child: Row(
                   children: [
-                    
                     Container(
                       width: 170,
                       padding: const EdgeInsets.only(top: 20, left: 16),
@@ -223,8 +220,6 @@ class PengaturanSisbakMortirPage extends StatelessWidget {
                         ],
                       ),
                     ),
-
-            
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
@@ -249,8 +244,6 @@ class PengaturanSisbakMortirPage extends StatelessWidget {
                                   TextStyle(fontSize: 14, color: Colors.black),
                             ),
                             const SizedBox(height: 20),
-
-                       
                             TextField(
                               decoration: InputDecoration(
                                 labelText: "Nama Pengguna",
@@ -270,24 +263,29 @@ class PengaturanSisbakMortirPage extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 25),
-
-                    
                             SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blue,
-                                  foregroundColor: Colors.white,
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 14),
-                                  textStyle: const TextStyle(
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blue,
+                                    foregroundColor: Colors.white,
+                                    padding: const EdgeInsets.symmetric(vertical: 14),
+                                    textStyle: const TextStyle(
                                       fontSize: 16,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const DashboardPengaturanPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: const Text("Masuk"),
                                 ),
-                                onPressed: () {},
-                                child: const Text("Masuk"),
                               ),
-                            ),
 
                             const Spacer(),
                             Align(
