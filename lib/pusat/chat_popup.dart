@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// widget pop-up yang menampilkan tampilan chat
 class SMSPage extends StatefulWidget {
   final VoidCallback onClose;
 
@@ -9,7 +10,9 @@ class SMSPage extends StatefulWidget {
   _SMSPageState createState() => _SMSPageState();
 }
 
+// Struktur Komponen
 class _SMSPageState extends State<SMSPage> {
+  // variabel utama 
   final TextEditingController _controller = TextEditingController();
 
   List<String> jaupanMessages = ["Test"];
@@ -17,6 +20,7 @@ class _SMSPageState extends State<SMSPage> {
 
   bool isJaupanActive = true;
 
+  // fungsi kirim pesan 
   void _sendMessage() {
     if (_controller.text.isNotEmpty) {
       setState(() {

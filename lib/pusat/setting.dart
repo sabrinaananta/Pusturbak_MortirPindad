@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:mortir_pindad/main.dart'; 
+import 'package:mortir_pindad/main.dart';
+import 'package:mortir_pindad/pusat/informasiperangkat.dart'; 
 import 'package:mortir_pindad/pusat/modegps.dart'; 
 import 'package:mortir_pindad/pusat/tambahpeta.dart'; 
 import 'package:mortir_pindad/pusat/pilihpeta.dart'; 
@@ -77,7 +78,9 @@ class _SettingsPageState extends State<SettingsPage> {
                                 onTap: () {
                               _showPengaturanAkunPopup();
                             }),
-                            _settingTile("Informasi Perangkat", Icons.info),
+                            _settingTile("Informasi Perangkat", Icons.info, onTap: () {
+                              _showInformasiPerangkatDialog();
+                            }),
                             _settingTile("Keluar", Icons.logout,
                                 isLogout: true),
                           ]
@@ -269,4 +272,14 @@ class _SettingsPageState extends State<SettingsPage> {
       },
     );
   }
+
+  void _showInformasiPerangkatDialog() {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return const InformasiPerangkatDialog();
+    },
+  );
+}
+
 }

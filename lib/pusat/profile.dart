@@ -1,5 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:mortir_pindad/pusat/dataperangkat.dart';
+import 'package:mortir_pindad/pusat/katasandi.dart';
+import 'package:mortir_pindad/pusat/pengaturanakun.dart';
+
 
 class DashboardPengaturanPage extends StatelessWidget {
   const DashboardPengaturanPage({Key? key}) : super(key: key);
@@ -66,22 +69,60 @@ class DashboardPengaturanPage extends StatelessWidget {
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          ListTile(
-                            leading: Icon(Icons.person, color: Colors.blue),
-                            title: Text("Pengguna",
+                        children: [
+                          // Mengubah ListTile menjadi Container dengan BoxDecoration
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                    color: Colors.grey.shade400, width: 1),
+                              ),
+                            ),
+                            child: ListTile(
+                              leading: Icon(Icons.person, color: Colors.blue),
+                              title: Text(
+                                "Pengguna",
                                 style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold)),
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
                           ),
-                          ListTile(
-                            leading: Icon(Icons.devices, color: Colors.black),
-                            title: Text("Data Perangkat"),
+          
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                    color: Colors.grey.shade400, width: 1),
+                              ),
+                            ),
+                            child: ListTile(
+                              leading: Icon(Icons.devices, color: Colors.black),
+                              title: Text("Data Perangkat"),
+                              onTap: () {
+                                // Navigasi ke DataPerangkatPage
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const DataPerangkatPage(),
+                                  ),
+                                );
+                              },
+                            ),
                           ),
-                          ListTile(
-                            leading: Icon(Icons.build, color: Colors.black),
-                            title: Text("Perkakas"),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                    color: Colors.grey.shade400, width: 1),
+                              ),
+                            ),
+                            child: ListTile(
+                              leading: Icon(Icons.build, color: Colors.black),
+                              title: Text("Perkakas"),
+                            ),
                           ),
                         ],
                       ),
@@ -118,17 +159,33 @@ class DashboardPengaturanPage extends StatelessWidget {
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.amber,
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const UbahKataSandiPage(),
+                                      ),
+                                    );
+                                  },
                                   child: const Text("Ubah Kata Sandi"),
                                 ),
+
                                 const SizedBox(width: 10),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.red,
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const PengaturanSisbakMortirPage(),
+                                      ),
+                                    );
+                                  },
                                   child: const Text("Keluar"),
                                 ),
+
                               ],
                             ),
                             const Spacer(),
@@ -143,7 +200,7 @@ class DashboardPengaturanPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

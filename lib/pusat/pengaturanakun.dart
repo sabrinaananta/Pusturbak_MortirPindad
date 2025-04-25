@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mortir_pindad/pusat/perkakas.dart';
 import 'package:mortir_pindad/pusat/profile.dart';
 
 class PengaturanAkunPage extends StatefulWidget {
@@ -12,18 +13,6 @@ class _PengaturanAkunPageState extends State<PengaturanAkunPage> {
   bool _obscureText = true;
   final TextEditingController _passwordController = TextEditingController();
   bool _showSisbakPage = false;
-
-  void _showPengaturanAkunPopup() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          backgroundColor: Colors.transparent,
-          child: PengaturanAkunPage(),
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,28 +65,22 @@ class _PengaturanAkunPageState extends State<PengaturanAkunPage> {
                       obscureText: _obscureText,
                       style: const TextStyle(color: Colors.white, fontSize: 14),
                       decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 8),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
-                          borderSide: const BorderSide(
-                              color: Color(0xFFFFEB3B), width: 2),
+                          borderSide: const BorderSide(color: Color(0xFFFFEB3B), width: 2),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
-                          borderSide: const BorderSide(
-                              color: Color(0xFFFFEB3B), width: 2),
+                          borderSide: const BorderSide(color: Color(0xFFFFEB3B), width: 2),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
-                          borderSide: const BorderSide(
-                              color: Color(0xFFFFEB3B), width: 2),
+                          borderSide: const BorderSide(color: Color(0xFFFFEB3B), width: 2),
                         ),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _obscureText
-                                ? Icons.visibility_off
-                                : Icons.visibility,
+                            _obscureText ? Icons.visibility_off : Icons.visibility,
                             color: Colors.white,
                           ),
                           onPressed: () {
@@ -116,12 +99,10 @@ class _PengaturanAkunPageState extends State<PengaturanAkunPage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
                         foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
-                          side: const BorderSide(
-                              color: Color(0xFFFFEB3B), width: 2),
+                          side: const BorderSide(color: Color(0xFFFFEB3B), width: 2),
                         ),
                       ),
                       onPressed: () {
@@ -131,7 +112,7 @@ class _PengaturanAkunPageState extends State<PengaturanAkunPage> {
                       },
                       child: const Text("OK"),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -196,34 +177,40 @@ class PengaturanSisbakMortirPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border(
-                          right:
-                              BorderSide(color: Colors.grey.shade400, width: 1),
+                          right: BorderSide(color: Colors.grey.shade400, width: 1),
                         ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           ListTile(
-                            leading: Icon(Icons.person, color: Colors.blue),
-                            title: Text("Pengguna",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold)),
+                            leading: const Icon(Icons.person, color: Colors.blue),
+                            title: const Text(
+                              "Pengguna",
+                              style: TextStyle(color: Colors.blue, fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
                           ),
                           ListTile(
-                            leading: Icon(Icons.build, color: Colors.black),
-                            title: Text("Perkakas",
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 16)),
+                            leading: const Icon(Icons.build, color: Colors.black),
+                            title: const Text(
+                              "Perkakas",
+                              style: TextStyle(color: Colors.black, fontSize: 16),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const PerkakasPage(),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
                     ),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 40, vertical: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -240,16 +227,14 @@ class PengaturanSisbakMortirPage extends StatelessWidget {
                             const SizedBox(height: 10),
                             const Text(
                               "Silakan Masuk Terlebih Dahulu",
-                              style:
-                                  TextStyle(fontSize: 14, color: Colors.black),
+                              style: TextStyle(fontSize: 14, color: Colors.black),
                             ),
                             const SizedBox(height: 20),
                             TextField(
                               decoration: InputDecoration(
                                 labelText: "Nama Pengguna",
-                                border: OutlineInputBorder(),
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 12, vertical: 14),
+                                border: const OutlineInputBorder(),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
                               ),
                             ),
                             const SizedBox(height: 15),
@@ -257,43 +242,40 @@ class PengaturanSisbakMortirPage extends StatelessWidget {
                               obscureText: true,
                               decoration: InputDecoration(
                                 labelText: "Kata Sandi",
-                                border: OutlineInputBorder(),
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 12, vertical: 14),
+                                border: const OutlineInputBorder(),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
                               ),
                             ),
                             const SizedBox(height: 25),
                             SizedBox(
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.blue,
-                                    foregroundColor: Colors.white,
-                                    padding: const EdgeInsets.symmetric(vertical: 14),
-                                    textStyle: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blue,
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(vertical: 14),
+                                  textStyle: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => const DashboardPengaturanPage(),
-                                      ),
-                                    );
-                                  },
-                                  child: const Text("Masuk"),
                                 ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const DashboardPengaturanPage(),
+                                    ),
+                                  );
+                                },
+                                child: const Text("Masuk"),
                               ),
-
+                            ),
                             const Spacer(),
                             Align(
                               alignment: Alignment.bottomRight,
                               child: Text(
                                 "Build 25.02.13 15:57:35",
-                                style: TextStyle(
-                                    fontSize: 12, color: Colors.black54),
+                                style: TextStyle(fontSize: 12, color: Colors.black54),
                               ),
                             ),
                           ],

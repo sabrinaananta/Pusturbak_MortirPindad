@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mortir_pindad/pusat/amunisi.dart';
 import 'package:mortir_pindad/pusat/daftarobjek.dart';
 import 'package:mortir_pindad/pusat/daftartembak.dart';
 import 'package:mortir_pindad/pusat/datasasaran.dart';
+import 'package:mortir_pindad/pusat/kopucuk.dart';
 import 'package:mortir_pindad/pusat/setting.dart';
 import 'package:mortir_pindad/maps/mapscreen.dart';
 import 'package:intl/intl.dart';
@@ -37,16 +39,12 @@ class _DashboardPageState extends State<DashboardPage> {
   bool _isDaftarTembakVisible = false;
   bool _showCompass = false;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-        
           const MapScreen(),
-
-        
           Positioned(
             top: 0,
             left: 0,
@@ -77,37 +75,50 @@ class _DashboardPageState extends State<DashboardPage> {
                       const Text('6133 2876', style: TextStyle(color: Colors.black)),
                     ],
                   ),
-                 _statusGroup(
-                    backgroundColor: Colors.white,
-                    children: [
-                      Image.asset(
-                        'asset/img/Kopucuk.png',
-                        width: 30,
-                        height: 30,
-                      ),
-                      const SizedBox(width: 4),
-                      const Text(
-                        'KO PUCUK',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => InputKoPucukPopup(),
+                      );
+                    },
+                    child: _statusGroup(
+                      backgroundColor: Colors.white,
+                      children: [
+                        Image.asset(
+                          'asset/img/Kopucuk.png',
+                          width: 30,
+                          height: 30,
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 4),
+                        const Text(
+                          'KO PUCUK',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  _statusGroup(
-                    backgroundColor: Colors.black,
-                    children: [
-                      Image.asset(
-                        'asset/img/amunisi.png',
-                        width: 30,
-                        height: 30,
-                      ),
-                      const SizedBox(width: 4),
-                      const Text('100/', style: TextStyle(color: Colors.red)),
-                      const Text('200/', style: TextStyle(color: Colors.orange)),
-                      const Text('300', style: TextStyle(color: Colors.amber)),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      showAmunisiPopup(context);
+                    },
+                    child: _statusGroup(
+                      backgroundColor: Colors.black,
+                      children: [
+                        Image.asset(
+                          'asset/img/amunisi.png',
+                          width: 30,
+                          height: 30,
+                        ),
+                        const SizedBox(width: 4),
+                        const Text('100/', style: TextStyle(color: Colors.red)),
+                        const Text('200/', style: TextStyle(color: Colors.orange)),
+                        const Text('300', style: TextStyle(color: Colors.amber)),
+                      ],
+                    ),
                   ),
 
                   _statusGroup(
@@ -124,27 +135,26 @@ class _DashboardPageState extends State<DashboardPage> {
                     ],
                   ),
                   _statusGroup(
-                  backgroundColor: Colors.grey,
-                  children: [
-                    Image.asset(
-                      'asset/img/calendar.png',
-                      width: 30,
-                      height: 30,
-                    ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      '071559 FEB 2025',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
-                ),
-
+                    backgroundColor: Colors.grey,
+                    children: [
+                      Image.asset(
+                        'asset/img/calendar.png',
+                        width: 30,
+                        height: 30,
+                      ),
+                      const SizedBox(width: 4),
+                      const Text(
+                        '071559 FEB 2025',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
           ),
 
-          //Sidebar kiri
+          // Sidebar kiri
           Positioned(
             left: 10,
             top: 80,
@@ -175,12 +185,10 @@ class _DashboardPageState extends State<DashboardPage> {
                     _showCompass = !_showCompass;
                   });
                 }),
-
               ],
             ),
           ),
 
-          
           if (_isSMSVisible)
             Positioned(
               left: 80,
@@ -248,6 +256,4 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
     );
   }
-
-  
 }

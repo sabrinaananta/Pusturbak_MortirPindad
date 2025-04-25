@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mortir_pindad/pusat/pengaturanakun.dart';
+import 'package:mortir_pindad/pusat/perkakas.dart';
 
 class DataPerangkatPage extends StatelessWidget {
   const DataPerangkatPage({Key? key}) : super(key: key);
@@ -33,7 +35,7 @@ class DataPerangkatPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      "Data Perangkat",
+                      "Pengaturan (Sisbak Mortir)",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -60,86 +62,293 @@ class DataPerangkatPage extends StatelessWidget {
                         color: Colors.white,
                         border: Border(
                           right: BorderSide(
-                              color: Colors.grey.shade400, width: 1),
+                            color: Colors.grey.shade400,
+                            width: 1,
+                          ),
                         ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ListTile(
-                            leading: Icon(Icons.person, color: Colors.blue),
-                            title: Text("Pengguna",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.devices, color: Colors.blue),
-                            title: Text("Data Perangkat",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.build, color: Colors.black),
-                            title: Text("Perkakas"),
-                          ),
+                          sidebarItem(Icons.person, "Pengguna", false, () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const PengaturanSisbakMortirPage()),
+                            );
+                          }),
+                          sidebarItem(Icons.devices, "Data Perangkat", true, () {
+                          }),
+                          sidebarItem(Icons.build, "Perkakas", false, () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const PerkakasPage()),
+                            );
+                          }),
                         ],
                       ),
+
                     ),
 
-                    // Konten Tengah (Main Content Area)
+                    // Konten Tengah
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 40, vertical: 30),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Daftar Perangkat",
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            const Divider(color: Colors.black),
-                            const SizedBox(height: 10),
-
-                            // List of devices (you can populate with actual data)
-                            ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: 5, // Replace with actual number of devices
-                              itemBuilder: (context, index) {
-                                return Card(
-                                  margin: const EdgeInsets.symmetric(vertical: 8),
-                                  child: ListTile(
-                                    leading: Icon(Icons.devices, color: Colors.blue),
-                                    title: Text("Perangkat ${index + 1}"),
-                                    subtitle: Text("Status: Online"),
-                                    trailing: Icon(Icons.more_vert),
-                                    onTap: () {
-                                      // Implement onTap action, e.g., navigate to device details page
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-
-                            const Spacer(),
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: Text(
-                                "Build 25.02.13 15:57:35",
+                            horizontal: 40, vertical: 20),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Data Perangkat",
                                 style: TextStyle(
-                                    fontSize: 12, color: Colors.black54),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
+                              const Divider(),
+                              const SizedBox(height: 10),
+
+                              const Text(
+                                "Identitas",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(height: 10),
+
+                              Container(
+                                color: Colors.cyan[50],
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 12),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    Text(
+                                      "Grup",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "3",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+
+                              Row(
+                                children: const [
+                                  Expanded(
+                                    child: Text(
+                                      "ID",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      "Controller",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const Divider(),
+                              const SizedBox(height: 8),
+
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blue,
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text("Ubah Identitas"),
+                                ),
+                              ),
+
+                              const SizedBox(height: 20),
+                              const Text(
+                                "Komunikasi",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
+                              const SizedBox(height: 4),
+                              const Text(
+                                "Long Range Radio",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54),
+                              ),
+                              const Divider(),
+                              const SizedBox(height: 8),
+
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: DataTable(
+                                  columns: const [
+                                    DataColumn(label: SizedBox.shrink()),
+                                    DataColumn(label: SizedBox.shrink()),
+                                  ],
+                                  rows: const [
+                                    DataRow(cells: [
+                                      DataCell(Text('Jenis')),
+                                      DataCell(Text('Serial (Radio Internal)')),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('Poll Timeout (detik)')),
+                                      DataCell(Text('2.0')),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('Poll Interval (detik)')),
+                                      DataCell(Text('5.0')),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('Daftar Node')),
+                                      DataCell(Text('.Observer1')),
+                                    ]),
+                                  ],
+                                  headingRowColor: MaterialStatePropertyAll(
+                                    Color(0xFFE0E0E0),
+                                  ),
+                                  border: TableBorder.all(
+                                    color: Colors.grey,
+                                    width: 1,
+                                  ),
+                                  dataRowMinHeight: 40,
+                                  dataRowMaxHeight: 50,
+                                ),
+                              ),
+
+                              const SizedBox(height: 20),
+                              const Text(
+                                "Short Range Radio",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54),
+                              ),
+                              const Divider(),
+                              const SizedBox(height: 8),
+
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: DataTable(
+                                  columns: const [
+                                    DataColumn(label: SizedBox.shrink()),
+                                    DataColumn(label: SizedBox.shrink()),
+                                  ],
+                                  rows: const [
+                                    DataRow(cells: [
+                                      DataCell(Text('Jenis')),
+                                      DataCell(Text('Serial (Radio Internal)')),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('Poll Timeout (detik)')),
+                                      DataCell(Text('2.0')),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('Poll Interval (detik)')),
+                                      DataCell(Text('5.0')),
+                                    ]),
+                                    DataRow(cells: [
+                                      DataCell(Text('Daftar Node')),
+                                      DataCell(Text('.Observer1')),
+                                    ]),
+                                  ],
+                                  headingRowColor: MaterialStatePropertyAll(
+                                    Color(0xFFE0E0E0),
+                                  ),
+                                  border: TableBorder.all(
+                                    color: Colors.grey,
+                                    width: 1,
+                                  ),
+                                  dataRowMinHeight: 40,
+                                  dataRowMaxHeight: 50,
+                                ),
+                              ),
+
+                              // === Tambahan baru setelah Short Range Radio ===
+
+                              const SizedBox(height: 20),
+                              const Text(
+                                "Interoperabilitas",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+
+                              Container(
+                                color: Colors.cyan[50],
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 12),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    Text(
+                                      "Status",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "Aktif",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              const SizedBox(height: 10),
+
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text(
+                                    "Alamat Perangkat",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text("-"),
+                                ],
+                              ),
+
+                              const Divider(),
+                              const SizedBox(height: 8),
+
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blue,
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text("Pengaturan Interoperabilitas"),
+                                ),
+                              ),
+
+                              const SizedBox(height: 20),
+
+                              const Text(
+                                "Isi berkas konfigurasi",
+                                style: TextStyle(
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+
+                              const Icon(Icons.keyboard_arrow_down, size: 32),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -152,4 +361,26 @@ class DataPerangkatPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget sidebarItem(IconData icon, String title, bool isSelected, VoidCallback onTap) {
+  return Container(
+    decoration: BoxDecoration(
+      border: Border(
+        bottom: BorderSide(color: Colors.grey.shade400, width: 1),
+      ),
+    ),
+    child: ListTile(
+      leading: Icon(icon, color: isSelected ? Colors.blue : Colors.black),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: isSelected ? Colors.blue : Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+      ),
+      onTap: onTap, 
+    ),
+  );
+}
 }
