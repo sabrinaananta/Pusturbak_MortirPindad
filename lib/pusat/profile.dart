@@ -70,7 +70,7 @@ class DashboardPengaturanPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Mengubah ListTile menjadi Container dengan BoxDecoration
+                          
                           Container(
                             decoration: BoxDecoration(
                               border: Border(
@@ -102,7 +102,6 @@ class DashboardPengaturanPage extends StatelessWidget {
                               leading: Icon(Icons.devices, color: Colors.black),
                               title: Text("Data Perangkat"),
                               onTap: () {
-                                // Navigasi ke DataPerangkatPage
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -128,7 +127,7 @@ class DashboardPengaturanPage extends StatelessWidget {
                       ),
                     ),
 
-                    // Konten Tengah
+                    
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(

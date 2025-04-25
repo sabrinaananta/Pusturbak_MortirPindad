@@ -3,11 +3,13 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+// komponen utama
 class CompassWidget extends StatefulWidget {
   @override
   _CompassWidgetState createState() => _CompassWidgetState();
 }
 
+// ui tampilan kompas
 class _CompassWidgetState extends State<CompassWidget> {
   @override
   Widget build(BuildContext context) {

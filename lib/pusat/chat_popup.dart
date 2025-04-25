@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// widget pop-up yang menampilkan tampilan chat
+// widget pop-up chat utama 
 class SMSPage extends StatefulWidget {
   final VoidCallback onClose;
 
@@ -10,9 +10,9 @@ class SMSPage extends StatefulWidget {
   _SMSPageState createState() => _SMSPageState();
 }
 
-// Struktur Komponen
+
 class _SMSPageState extends State<SMSPage> {
-  // variabel utama 
+  // smspage state
   final TextEditingController _controller = TextEditingController();
 
   List<String> jaupanMessages = ["Test"];
@@ -34,15 +34,18 @@ class _SMSPageState extends State<SMSPage> {
     }
   }
 
+// ui tampilan utama
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        width: 350,
-        constraints: BoxConstraints(
-          maxHeight: 600, 
-        ),
-        padding: EdgeInsets.all(10),
+    child: Container(
+      margin: EdgeInsets.only(top: 10), 
+      width: 350,
+      constraints: BoxConstraints(
+        maxHeight: 600,
+      ),
+      padding: EdgeInsets.all(10),
+
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -89,7 +92,7 @@ class _SMSPageState extends State<SMSPage> {
               ),
             ),
 
-            //pilih jaupan atau bms
+          
             Container(
               height: 40,
               decoration: BoxDecoration(
@@ -146,7 +149,6 @@ class _SMSPageState extends State<SMSPage> {
                 ],
               ),
             ),
-
             
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),
@@ -163,7 +165,6 @@ class _SMSPageState extends State<SMSPage> {
               ),
             ),
 
-            // Daftar Pesan
             Container(
               height: 280,
               child: ListView.builder(
@@ -208,7 +209,6 @@ class _SMSPageState extends State<SMSPage> {
               ),
             ),
 
-            // Inputan dan Tombol Kirim
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black26),

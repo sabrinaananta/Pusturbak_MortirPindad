@@ -81,43 +81,41 @@ class _MapScreenState extends State<MapScreen> {
       );
       _markerData.add(markerData);
       _markers.add(
-       Marker(
-    point: position,
-    width: 100,
-    height: 100,
-    builder: (context) => GestureDetector(
-    onTap: () => _showMarketInfo(markerData), 
-
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(4),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 4,
-                offset: Offset(0, 2),
-              ),
-            ],
-          ),
-          child: Text(
-            title,
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+            Marker(
+          point: position,
+          width: 100,
+          height: 100,
+          builder: (context) => GestureDetector(
+          onTap: () => _showMarketInfo(markerData), 
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(4),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Icon(Icons.location_on, color: Colors.redAccent, size: 40),
+              ],
             ),
           ),
         ),
-        Icon(Icons.location_on, color: Colors.redAccent, size: 40),
-      ],
-    ),
-  ),
-),
-
       );
     });
   }
@@ -168,25 +166,25 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   void _showMarketInfo(MarkerData markerData) {
-  String coordinateText;
-  if (_selectedCoordinateType == CoordinateType.lco) {
-    coordinateText = "Latitude: ${markerData.Position.latitude}\n"
-        "Longitude: ${markerData.Position.longitude}";
-  } else {
-    coordinateText = _convertToUTM(markerData.Position);
-  }
+    String coordinateText;
+    if (_selectedCoordinateType == CoordinateType.lco) {
+      coordinateText = "Latitude: ${markerData.Position.latitude}\n"
+          "Longitude: ${markerData.Position.longitude}";
+    } else {
+      coordinateText = _convertToUTM(markerData.Position);
+    }
 
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: Text(markerData.title),
-      content: Text('${markerData.description}\n\n$coordinateText'),
-      actions: [
-        IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.close),
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(markerData.title),
+        content: Text('${markerData.description}\n\n$coordinateText'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.close),
         ),
       ],
     ),
@@ -332,90 +330,90 @@ class _MapScreenState extends State<MapScreen> {
               ),
 
           Positioned(
-  bottom: 260,
-  right: 20,
-  child: Column(
-    children: [
-      FloatingActionButton.small(
-        heroTag: 'zoom_in',
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-        onPressed: () {
-          final currentZoom = _mapController.zoom;
-          _mapController.move(_mapController.center, currentZoom + 1);
-        },
-        child: Icon(Icons.zoom_in, size: 20),
-      ),
-      SizedBox(height: 10),
-      FloatingActionButton.small(
-        heroTag: 'zoom_out',
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-        onPressed: () {
-          final currentZoom = _mapController.zoom;
-          _mapController.move(_mapController.center, currentZoom - 1);
-        },
-        child: Icon(Icons.zoom_out, size: 20),
-      ),
-      SizedBox(height: 10),
-      FloatingActionButton.small(
-        heroTag: 'current_location',
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-        onPressed: _showCurrentLocation,
-        child: Icon(Icons.location_searching_rounded, size: 20),
-      ),
-      SizedBox(height: 10),
-      Container(
-  height: 40,
-  width: 40,
-  child: PopupMenuButton<CoordinateType>(
-    tooltip: 'Pilih jenis koordinat',
-    onSelected: (CoordinateType result) {
-      setState(() {
-        _selectedCoordinateType = result;
-      });
-    },
-    itemBuilder: (BuildContext context) => <PopupMenuEntry<CoordinateType>>[
-      PopupMenuItem<CoordinateType>(
-        value: CoordinateType.lco,
-        child: Row(
+        bottom: 260,
+        right: 20,
+        child: Column(
           children: [
-            Icon(Icons.location_on, size: 18),
-            SizedBox(width: 8),
-            Text('LCO'),
+            FloatingActionButton.small(
+              heroTag: 'zoom_in',
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.black,
+              onPressed: () {
+                final currentZoom = _mapController.zoom;
+                _mapController.move(_mapController.center, currentZoom + 1);
+              },
+              child: Icon(Icons.zoom_in, size: 20),
+            ),
+            SizedBox(height: 10),
+            FloatingActionButton.small(
+              heroTag: 'zoom_out',
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.black,
+              onPressed: () {
+                final currentZoom = _mapController.zoom;
+                _mapController.move(_mapController.center, currentZoom - 1);
+              },
+              child: Icon(Icons.zoom_out, size: 20),
+            ),
+            SizedBox(height: 10),
+            FloatingActionButton.small(
+              heroTag: 'current_location',
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.black,
+              onPressed: _showCurrentLocation,
+              child: Icon(Icons.location_searching_rounded, size: 20),
+            ),
+            SizedBox(height: 10),
+            Container(
+        height: 40,
+        width: 40,
+        child: PopupMenuButton<CoordinateType>(
+          tooltip: 'Pilih jenis koordinat',
+          onSelected: (CoordinateType result) {
+            setState(() {
+              _selectedCoordinateType = result;
+            });
+          },
+          itemBuilder: (BuildContext context) => <PopupMenuEntry<CoordinateType>>[
+            PopupMenuItem<CoordinateType>(
+              value: CoordinateType.lco,
+              child: Row(
+                children: [
+                  Icon(Icons.location_on, size: 18),
+                  SizedBox(width: 8),
+                  Text('LCO'),
+                ],
+              ),
+            ),
+            PopupMenuItem<CoordinateType>(
+              value: CoordinateType.utm,
+              child: Row(
+                children: [
+                  Icon(Icons.map, size: 18),
+                  SizedBox(width: 8),
+                  Text('UTM'),
+                ],
+              ),
+            ),
+          ],
+          icon: Icon(Icons.public, size: 20, color: Colors.white),
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        decoration: BoxDecoration(
+          color: Colors.black, 
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
           ],
         ),
       ),
-      PopupMenuItem<CoordinateType>(
-        value: CoordinateType.utm,
-        child: Row(
-          children: [
-            Icon(Icons.map, size: 18),
-            SizedBox(width: 8),
-            Text('UTM'),
-          ],
-        ),
-      ),
-    ],
-    icon: Icon(Icons.public, size: 20, color: Colors.white),
-    color: Colors.white,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
-    ),
-  ),
-  decoration: BoxDecoration(
-    color: Colors.black, 
-    shape: BoxShape.circle,
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black26,
-        blurRadius: 4,
-        offset: Offset(0, 2),
-      ),
-    ],
-  ),
-),
 
       SizedBox(height: 10),
       FloatingActionButton.small(
@@ -451,9 +449,6 @@ class _MapScreenState extends State<MapScreen> {
     ],
   ),
 ),
-
-
-
         ],
       ),
     );

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sensors_plus/sensors_plus.dart';
+import 'package:sensors_plus/sensors_plus.dart'; // untuk akses sensor perangkat 
 import 'dart:math' as math;
 
+// komponen utama 
 class CompassWidget extends StatefulWidget {
   @override
   _CompassWidgetState createState() => _CompassWidgetState();
@@ -14,7 +15,6 @@ class _CompassWidgetState extends State<CompassWidget> {
   void initState() {
     super.initState();
     accelerometerEvents.listen((AccelerometerEvent event) {
-      // basic kalkulasi
       double direction = math.atan2(event.y, event.x) * (180 / math.pi);
       setState(() {
         _direction = direction;
@@ -22,6 +22,7 @@ class _CompassWidgetState extends State<CompassWidget> {
     });
   }
 
+// tampilan widget 
   @override
   Widget build(BuildContext context) {
     return Transform.rotate(

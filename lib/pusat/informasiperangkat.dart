@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// komponen utama 
 class InformasiPerangkatDialog extends StatelessWidget {
   const InformasiPerangkatDialog({super.key});
 
@@ -14,7 +15,8 @@ class InformasiPerangkatDialog extends StatelessWidget {
       child: Container(
         width: 400,
         padding: const EdgeInsets.all(16),
-        child: SingleChildScrollView(  // Add this widget for scrolling
+        // dibikin scroll
+        child: SingleChildScrollView(  
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -72,7 +74,7 @@ class InformasiPerangkatDialog extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   ),
                   onPressed: () {
-                    // Aksi ketika tombol Status Sensor ditekan
+                    // aksi untuk tombol Status Sensor ditekan
                   },
                   child: const Text(
                     "Status Sensor",

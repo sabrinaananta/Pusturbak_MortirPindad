@@ -1,7 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 
+// widget kalkulator page 
 class KalkulatorDeklinasiPage extends StatefulWidget {
   final VoidCallback onClose;
 
@@ -14,6 +13,7 @@ class KalkulatorDeklinasiPage extends StatefulWidget {
 }
 
 class _KalkulatorDeklinasiPageState extends State<KalkulatorDeklinasiPage> {
+  // controller input teks
   final TextEditingController latitudeController = TextEditingController();
   final TextEditingController longitudeController = TextEditingController();
   final TextEditingController altitudeController = TextEditingController();
@@ -42,7 +42,7 @@ class _KalkulatorDeklinasiPageState extends State<KalkulatorDeklinasiPage> {
           ),
           child: Column(
             children: [
-              
+              // bagian header dialog
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 10),
@@ -76,7 +76,7 @@ class _KalkulatorDeklinasiPageState extends State<KalkulatorDeklinasiPage> {
 
               const SizedBox(height: 10),
 
-              // Bagian Form Input & Date
+              // form input gambar
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Row(
@@ -108,8 +108,6 @@ class _KalkulatorDeklinasiPageState extends State<KalkulatorDeklinasiPage> {
               ),
 
               const SizedBox(height: 10),
-
-              //Deklinasi
               const Text(
                 "Deklinasi",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -120,8 +118,6 @@ class _KalkulatorDeklinasiPageState extends State<KalkulatorDeklinasiPage> {
               ),
 
               const SizedBox(height: 20),
-
-              
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -131,7 +127,6 @@ class _KalkulatorDeklinasiPageState extends State<KalkulatorDeklinasiPage> {
                       onPressed: widget.onClose),
                 ],
               ),
-
               const SizedBox(height: 10),
             ],
           ),
@@ -140,7 +135,7 @@ class _KalkulatorDeklinasiPageState extends State<KalkulatorDeklinasiPage> {
     );
   }
 
-  //  Widget untuk Field Input Latitude, Longitude, Altitude
+  //  Widget untuk input 
   Widget _buildTextField(String label, TextEditingController controller,
       {String unit = ""}) {
     return Padding(
@@ -239,7 +234,6 @@ class _KalkulatorDeklinasiPageState extends State<KalkulatorDeklinasiPage> {
     );
   }
 
-  //  Widget untuk Tombol
   Widget _buildButton(String label, Color bgColor, Color textColor,
       {VoidCallback? onPressed}) {
     return ElevatedButton(

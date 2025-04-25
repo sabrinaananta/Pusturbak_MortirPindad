@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mortir_pindad/pusat/pengaturanakun.dart';
 import 'package:mortir_pindad/pusat/perkakas.dart';
 
+// struktur dasar
 class DataPerangkatPage extends StatelessWidget {
   const DataPerangkatPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // container utama
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: Center(
@@ -21,7 +23,6 @@ class DataPerangkatPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // HEADER
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -49,8 +50,7 @@ class DataPerangkatPage extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // BODY
+              // body 
               Expanded(
                 child: Row(
                   children: [
@@ -89,7 +89,6 @@ class DataPerangkatPage extends StatelessWidget {
 
                     ),
 
-                    // Konten Tengah
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
@@ -107,7 +106,7 @@ class DataPerangkatPage extends StatelessWidget {
                               ),
                               const Divider(),
                               const SizedBox(height: 10),
-
+                              // bagian utama isi
                               const Text(
                                 "Identitas",
                                 style: TextStyle(
@@ -159,7 +158,6 @@ class DataPerangkatPage extends StatelessWidget {
                               ),
                               const Divider(),
                               const SizedBox(height: 8),
-
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: ElevatedButton(
@@ -170,7 +168,6 @@ class DataPerangkatPage extends StatelessWidget {
                                   child: const Text("Ubah Identitas"),
                                 ),
                               ),
-
                               const SizedBox(height: 20),
                               const Text(
                                 "Komunikasi",
@@ -187,7 +184,6 @@ class DataPerangkatPage extends StatelessWidget {
                               ),
                               const Divider(),
                               const SizedBox(height: 8),
-
                               SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: DataTable(
@@ -271,9 +267,6 @@ class DataPerangkatPage extends StatelessWidget {
                                   dataRowMaxHeight: 50,
                                 ),
                               ),
-
-                              // === Tambahan baru setelah Short Range Radio ===
-
                               const SizedBox(height: 20),
                               const Text(
                                 "Interoperabilitas",
@@ -283,7 +276,6 @@ class DataPerangkatPage extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 8),
-
                               Container(
                                 color: Colors.cyan[50],
                                 padding: const EdgeInsets.symmetric(
@@ -305,9 +297,7 @@ class DataPerangkatPage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-
                               const SizedBox(height: 10),
-
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -320,10 +310,8 @@ class DataPerangkatPage extends StatelessWidget {
                                   Text("-"),
                                 ],
                               ),
-
                               const Divider(),
                               const SizedBox(height: 8),
-
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: ElevatedButton(
@@ -334,9 +322,7 @@ class DataPerangkatPage extends StatelessWidget {
                                   child: const Text("Pengaturan Interoperabilitas"),
                                 ),
                               ),
-
                               const SizedBox(height: 20),
-
                               const Text(
                                 "Isi berkas konfigurasi",
                                 style: TextStyle(

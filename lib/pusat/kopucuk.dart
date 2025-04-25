@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+// widget dialog kopucuk
 class InputKoPucukPopup extends StatelessWidget {
+  // controler untuk mengelola inputannya 
   final TextEditingController idPucukController = TextEditingController();
   final TextEditingController latitudeController = TextEditingController();
   final TextEditingController longitudeController = TextEditingController();

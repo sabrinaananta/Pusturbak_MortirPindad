@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// widget menampilkan pop up 
 class ImagePopup extends StatelessWidget {
   final VoidCallback onClose;
 
@@ -28,6 +29,7 @@ class ImagePopup extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // header pop up 
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
@@ -69,6 +71,7 @@ class ImagePopup extends StatelessWidget {
     );
   }
 
+// widget tampilan gambar
   Widget _buildImageItem(String imagePath, String fileName) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// komponen utama
 class DataSasaranPage extends StatefulWidget {
   final VoidCallback onClose;
 
@@ -9,8 +10,10 @@ class DataSasaranPage extends StatefulWidget {
   _DataSasaranPageState createState() => _DataSasaranPageState();
 }
 
+// menyimpan index gambar
+
 class _DataSasaranPageState extends State<DataSasaranPage> {
-  int selectedIndex = -1;
+  int selectedIndex = -1; 
   final List<Map<String, String>> imageList = [
     {"image": "asset/img/tes1.jpg", "name": "tes1.jpg"},
     {"image": "asset/img/tes2.jpg", "name": "tes2.jpg"},
@@ -107,6 +110,7 @@ class _DataSasaranPageState extends State<DataSasaranPage> {
     });
   }
 
+// gidget utama 
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mortir_pindad/pusat/pengaturanakun.dart';
 
-
+// halaman utama
 class UbahKataSandiPage extends StatelessWidget {
   const UbahKataSandiPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // controller untuk mengambil inputan user
     final TextEditingController oldPasswordController = TextEditingController();
     final TextEditingController newPasswordController = TextEditingController();
 
@@ -24,7 +25,7 @@ class UbahKataSandiPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // HEADER
+              // header
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -53,7 +54,7 @@ class UbahKataSandiPage extends StatelessWidget {
                 ),
               ),
 
-              // BODY
+              // body
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
@@ -104,8 +105,6 @@ class UbahKataSandiPage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            // Di sini kamu bisa tambahkan validasi / cek password lama, dll
-                            // Tapi untuk sekarang langsung navigasi saja:
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

@@ -114,7 +114,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  // Widget untuk Tombol Menu Operasi & Konfigurasi
+  // Widget untuk Tombol Menu Operasi dan Konfigurasi
   Widget _menuButton(String title, bool isMenuOperasi) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
@@ -135,7 +135,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  //  Widget untuk  Pengaturan
+  //  Widget untuk  pengaturan
   Widget _settingTile(String title, IconData icon,
       {bool isLogout = false, VoidCallback? onTap}) {
     return InkWell(
@@ -173,7 +173,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  // Widget untuk  Aktifkan Mode Manual
+  // Widget untuk  aktifkan mode manual
   Widget _toggleModeTile() {
     return InkWell(
       onTap: () {
