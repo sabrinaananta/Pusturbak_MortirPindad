@@ -7,18 +7,19 @@ class DaftarTembakPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dataTembak = List.generate(3, (index) => {
-      'tanggal': '141613 Jun 2024',
-      'id': '1718356388933',
-      'arah': '6057',
-      'jarak': '1949',
-      'jenis': 'Tajam',
-    });
+    final dataTembak = List.generate(4, (index) => {
+          'arah': '402',
+          'jarak': '2399',
+          'elevasi': '1240',
+          'jenis': 'Tajam',
+          'jenisMunisi': '4',
+          'id': '1718356388933',
+        });
 
-// ui tampilan utama
     return Container(
       width: 400,
-      height: 500,
+      height: 450,
+      margin: EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -46,7 +47,7 @@ class DaftarTembakPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Daftar Tembak",
+                  "Data Sasaran Diterima",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -60,7 +61,6 @@ class DaftarTembakPage extends StatelessWidget {
               ],
             ),
           ),
-          //  daftar tembak
           Expanded(
             child: ListView.builder(
               itemCount: dataTembak.length,
@@ -70,7 +70,8 @@ class DaftarTembakPage extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey.shade300),
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: [
                         BoxShadow(
@@ -80,90 +81,115 @@ class DaftarTembakPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    
-                    Container(
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(8),
-                          bottomLeft: Radius.circular(8),
-                        ),
-                      ),
-                      padding: EdgeInsets.symmetric(vertical: 25),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'No.${index + 1}',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            '0',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Stack(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(item['tanggal'] ?? '',
-                                style: TextStyle(color: Colors.grey[700])),
-                            Text(item['id'] ?? '',
-                                style: TextStyle(color: Colors.grey[700])),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                            
+                              Row(
+                                children: [
+                                  Text(
+                                    'No.${index + 1}',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Icon(Icons.arrow_upward, size: 16),
+                                ],
+                              ),
+                              SizedBox(height: 8),
+                        
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  item['id'] ?? '',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              // Data Detail
+                              Row(
+                                children: [
+                                  Expanded(child: Text('Arah')),
+                                  Expanded(child: Text('Elevasi')),
+                                ],
+                              ),
+                              SizedBox(height: 2),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      item['arah'] ?? '',
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      item['elevasi'] ?? '',
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 8),
+                              Row(
+                                children: [
+                                  Expanded(child: Text('Jarak SAS')),
+                                  Expanded(child: Text('Jenis Munisi')),
+                                ],
+                              ),
+                              SizedBox(height: 2),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      item['jarak'] ?? '',
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      item['jenisMunisi'] ?? '',
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 8),
+                              Text('Jenis Munisi'),
+                              SizedBox(height: 2),
+                              Text(
+                                item['jenis'] ?? '',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Expanded(child: Text('Arah')),
-                            Text(item['arah'] ?? ''),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Expanded(child: Text('Jarak')),
-                            Text(item['jarak'] ?? ''),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Expanded(child: Text('Jenis Amunisi')),
-                            Text(item['jenis'] ?? ''),
-                          ],
+                  
+                        Positioned(
+                          bottom: 8,
+                          right: 8,
+                          child: Text(
+                            '1',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey.shade400,
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
-                ),
-              ],
+                );
+              },
             ),
           ),
-        );
-      },
-    ),
-  ),
-
-          ],
-        ),
-      );
-    }
+        ],
+      ),
+    );
   }
+}
