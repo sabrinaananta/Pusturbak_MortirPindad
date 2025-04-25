@@ -95,7 +95,7 @@ class PerkakasPage extends StatelessWidget {
                               const Divider(),
                               const SizedBox(height: 10),
 
-                              // STATUS LAYANAN
+                              // status layanan 
                               Container(
                                 width: double.infinity,
                                 color: Colors.cyan[50],
@@ -241,7 +241,6 @@ class PerkakasPage extends StatelessWidget {
                                 ],
                               ),
 
-                              // === BAGIAN TAMBAHAN DARI GAMBAR ===
                               const SizedBox(height: 20),
                               Container(
                                 width: double.infinity,
@@ -302,183 +301,183 @@ class PerkakasPage extends StatelessWidget {
                               ),
 
                               const SizedBox(height: 20),
-const Text("Pembaruan Perangkat", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-const SizedBox(height: 10),
-
-// PEMBARUAN
-const Text("Pembaruan"),
-Container(
-  decoration: BoxDecoration(
-    border: Border.all(color: Colors.black54),
-  ),
-  child: Row(
-    children: [
-      Container(
-        color: Colors.grey[300],
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        child: const Text("Choose File"),
-      ),
-      const Expanded(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12),
-          child: Text("No File chosen"),
-        ),
-      ),
-    ],
-  ),
-),
-
-const SizedBox(height: 16),
-
-// CHECKSUM
-const Text("Checksum"),
-Container(
-  decoration: BoxDecoration(
-    border: Border.all(color: Colors.black54),
-  ),
-  child: Row(
-    children: [
-      Container(
-        color: Colors.grey[300],
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        child: const Text("Choose File"),
-      ),
-      const Expanded(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12),
-          child: Text("No File chosen"),
-        ),
-      ),
-    ],
-  ),
-),
-
-const SizedBox(height: 20),
-
-// TOMBOL ATUR PERANGKAT
-Container(
-  width: double.infinity,
-  color: Colors.cyan[50],
-  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 12),
-  child: Align(
-    alignment: Alignment.centerRight,
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.grey[800],
-        foregroundColor: Colors.white,
-      ),
-      onPressed: () {
-        // TODO: Tambahkan aksi pembaruan perangkat
-      },
-      child: const Text("Atur Perangkat"),
-    ),
-  ),
-),
-// === INFORMASI PERANGKAT ===
-const SizedBox(height: 20),
-Container(
-  width: double.infinity,
-  color: Colors.cyan[50],
-  padding: EdgeInsets.all(12),
-  child: Text(
-    "Informasi Perangkat",
-    style: TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
-),
-const SizedBox(height: 10),
-Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: const [
-    Text("kernel", style: TextStyle(fontWeight: FontWeight.bold)),
-    Text("Linux 4.14.78-hdte-k100+"),
-    SizedBox(height: 12),
-    
-    Text("CCU", style: TextStyle(fontWeight: FontWeight.bold)),
-    Text("Freescale i. mx6 Ultralite (Device Tree)"),
-    SizedBox(height: 12),
-
-    Text("RAM", style: TextStyle(fontWeight: FontWeight.bold)),
-    Text("492.3M (516165632 B)"),
-    SizedBox(height: 12),
-
-    Text("Penyimpanan", style: TextStyle(fontWeight: FontWeight.bold)),
-    Text("/dev/root/3.5G"),
-    SizedBox(height: 12),
-
-    Text("Alamat dan Rute IP", style: TextStyle(fontWeight: FontWeight.bold)),
-    Text("192.168.0.0/24 dev wlan0 proto kernel scope link src 192.168.0.1"),
-    Text("192.168.0.0/24 dev eth1 proto kernel scope link src 192.168.1.1 linkdown"),
-  ],
-),
-const SizedBox(height: 20),
-const Text(
-  "Versi Citra",
-  style: TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
-  ),
-),
-const SizedBox(height: 10),
-Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: const [
-    Text("Sisbakmortir – 20230530", style: TextStyle(fontWeight: FontWeight.bold)),
-    SizedBox(height: 8),
-    Text("update – 20230530 -> update – 20230821"),
-    Text("update – 20230530 -> update – 20230821"),
-    Text("update – 20230530 -> update – 20230821"),
-    Text("update – 20230530 -> update – 20230821"),
-  ],
-),
-
-const SizedBox(height: 20),
-Container(
-  width: double.infinity,
-  color: Colors.cyan[50],
-  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 12),
-  child: Align(
-    alignment: Alignment.centerRight,
-    child: ElevatedButton(
-      onPressed: () {
-        // TODO: Tambahkan aksi restart perangkat
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.red,
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-      ),
-      child: const Text(
-        'Nyalakan Ulang Perangkat',
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  ),
-),
+                                  const Text("Pembaruan Perangkat", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                                  const SizedBox(height: 10),
 
 
-                        
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+                                  const Text("Pembaruan"),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.black54),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          color: Colors.grey[300],
+                                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                          child: const Text("Choose File"),
+                                        ),
+                                        const Expanded(
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(horizontal: 12),
+                                            child: Text("No File chosen"),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  const SizedBox(height: 16),
+
+                                  // CHECKSUM
+                                  const Text("Checksum"),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.black54),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          color: Colors.grey[300],
+                                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                          child: const Text("Choose File"),
+                                        ),
+                                        const Expanded(
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(horizontal: 12),
+                                            child: Text("No File chosen"),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  const SizedBox(height: 20),
+
+                                  // TOMBOL ATUR PERANGKAT
+                                  Container(
+                                    width: double.infinity,
+                                    color: Colors.cyan[50],
+                                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.grey[800],
+                                          foregroundColor: Colors.white,
+                                        ),
+                                        onPressed: () {
+                                          // TODO: Tambahkan aksi pembaruan perangkat
+                                        },
+                                        child: const Text("Atur Perangkat"),
+                                      ),
+                                    ),
+                                  ),
+                                  // === INFORMASI PERANGKAT ===
+                                  const SizedBox(height: 20),
+                                  Container(
+                                    width: double.infinity,
+                                    color: Colors.cyan[50],
+                                    padding: EdgeInsets.all(12),
+                                    child: Text(
+                                      "Informasi Perangkat",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text("kernel", style: TextStyle(fontWeight: FontWeight.bold)),
+                                      Text("Linux 4.14.78-hdte-k100+"),
+                                      SizedBox(height: 12),
+                                      
+                                      Text("CCU", style: TextStyle(fontWeight: FontWeight.bold)),
+                                      Text("Freescale i. mx6 Ultralite (Device Tree)"),
+                                      SizedBox(height: 12),
+
+                                      Text("RAM", style: TextStyle(fontWeight: FontWeight.bold)),
+                                      Text("492.3M (516165632 B)"),
+                                      SizedBox(height: 12),
+
+                                      Text("Penyimpanan", style: TextStyle(fontWeight: FontWeight.bold)),
+                                      Text("/dev/root/3.5G"),
+                                      SizedBox(height: 12),
+
+                                      Text("Alamat dan Rute IP", style: TextStyle(fontWeight: FontWeight.bold)),
+                                      Text("192.168.0.0/24 dev wlan0 proto kernel scope link src 192.168.0.1"),
+                                      Text("192.168.0.0/24 dev eth1 proto kernel scope link src 192.168.1.1 linkdown"),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 20),
+                                  const Text(
+                                    "Versi Citra",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text("Sisbakmortir – 20230530", style: TextStyle(fontWeight: FontWeight.bold)),
+                                      SizedBox(height: 8),
+                                      Text("update – 20230530 -> update – 20230821"),
+                                      Text("update – 20230530 -> update – 20230821"),
+                                      Text("update – 20230530 -> update – 20230821"),
+                                      Text("update – 20230530 -> update – 20230821"),
+                                    ],
+                                  ),
+
+                                  const SizedBox(height: 20),
+                                  Container(
+                                    width: double.infinity,
+                                    color: Colors.cyan[50],
+                                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          // TODO: Tambahkan aksi restart perangkat
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.red,
+                                          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(8),
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          'Nyalakan Ulang Perangkat',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+
+
+                                                          
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
 
   Widget sidebarItem(IconData icon, String title, bool isSelected, BuildContext context) {
     return Container(

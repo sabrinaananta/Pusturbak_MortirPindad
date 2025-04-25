@@ -165,9 +165,13 @@ class DataPerangkatPage extends StatelessWidget {
                                     backgroundColor: Colors.blue,
                                   ),
                                   onPressed: () {},
-                                  child: const Text("Ubah Identitas"),
+                                  child: const Text(
+                                    "Ubah Identitas",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
                                 ),
                               ),
+
                               const SizedBox(height: 20),
                               const Text(
                                 "Komunikasi",
@@ -319,9 +323,13 @@ class DataPerangkatPage extends StatelessWidget {
                                     backgroundColor: Colors.blue,
                                   ),
                                   onPressed: () {},
-                                  child: const Text("Pengaturan Interoperabilitas"),
+                                  child: const Text(
+                                    "Pengaturan Interoperabilitas",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
                                 ),
                               ),
+
                               const SizedBox(height: 20),
                               const Text(
                                 "Isi berkas konfigurasi",
